@@ -1,0 +1,49 @@
+<div class = "row">   
+<div class = "col-12">  
+    <p>LISTADO DE FUTBOLISTAS</p> 
+</div>
+<div class = "row">
+    <div class = "col-md-9">
+        <input class = "form-control" [(ngModel)]="campoBuscado" name = "campoBuscado"/>
+    </div>
+    <div class = "col-md-3">
+        <button (click) = "Buscar()" class = "btn btn-primary"> Buscar </button>
+        <!--<button (click) = "Crear()" class = "btn btn-danger"> Crear </button>-->
+        <button [routerLink] = '["/Futbolistas-crear"]' class = "btn btn-primary">
+        Ir a formulario
+        </button>
+    </div>
+</div>
+</div>
+
+
+
+
+
+<table class= "table"> 
+    <tr>    
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Pais</th>
+        <th>Descripcion</th>
+        <th>Goles</th>
+        <th>Equipo</th>
+        <td>      </td>
+        
+    </tr>
+    <tr *ngFor="let fut of listadoFutbolistas">  
+
+        <td>{{fut.futbolistaId}}</td>
+        <td>{{fut.nombre}}</td>
+        <td>{{fut.edad}}</td>
+        <td>{{fut.pais}}</td>
+        <td>{{fut.descripcion}}</td>
+        <td>{{fut.goles}}</td>
+        <td>{{fut.equipo}}</td>
+
+        <td><button class="btn btn-danger" (click)= "borrar(fut.futbolistaId)"> Borrar </button></td>
+        <td><button class="btn btn-success" (click)= "Modificar(fut.futbolistaId)"> Modificar </button></td>
+        <td><button class="btn btn-warning" [routerLink]='["/Futbolistas-editar/" + fut.futbolistaId ]' > Editar </button></td>
+    </tr>
+</table>

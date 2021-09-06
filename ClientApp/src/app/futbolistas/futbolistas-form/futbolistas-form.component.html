@@ -1,0 +1,72 @@
+<h1>Formulario Futbolistas</h1>
+<form class="form-horizontal"
+[formGroup]="formFutbolistas"
+(submit)="save()"
+>
+
+<fieldset>
+<div class="form-group" [ngClass]="{'has-error':( 
+    formFutbolistas.get('nombre').touched || formFutbolistas.get('nombre').dirty 
+    && !formFutbolistas.get('nombre').valid)}">   
+    <label for="nombre"> Nombre </label>
+    <input id="nombre" class="form-control"
+    type="text" 
+    required
+    formControlName="nombre">
+</div>
+
+<span class="help-block" *ngIf="(formFutbolistas.get('nombre').touched || formFutbolistas.get('nombre').dirty 
+&& !formFutbolistas.get('nombre').valid)">
+<span *ngIf="formFutbolistas.get('nombre').errors?.required">Debe ingresar un Nombre</span>
+</span>
+
+<div class="form-group" [ngClass]="{'has-error':( 
+    formFutbolistas.get('edad').touched || formFutbolistas.get('edad').dirty 
+    && !formFutbolistas.get('edad').valid)}">   
+    <label for="edad"> Edad </label>
+    <input id="edad" class="form-control"
+    type="text" 
+    required
+    formControlName="edad">
+</div>
+
+<div class="form-group" [ngClass]="{'has-error':( 
+    formFutbolistas.get('descripcion').touched || formFutbolistas.get('descripcion').dirty 
+    && !formFutbolistas.get('descripcion').valid)}">   
+    <label for="descripcion"> Descripcion </label>
+    <input id="descripcion" class="form-control"
+    type="text" 
+    formControlName="descripcion">
+</div>
+
+<div class="form-group" [ngClass]="{'has-error':( 
+    formFutbolistas.get('pais').touched || formFutbolistas.get('pais').dirty 
+    && !formFutbolistas.get('pais').valid)}">   
+    <label for="pais"> País </label>
+    <input id="pais" class="form-control"
+    type="text" 
+    formControlName="pais">
+</div>
+
+<div class="form-group" [ngClass]="{'has-error':( 
+    formFutbolistas.get('goles').touched || formFutbolistas.get('goles').dirty 
+    && !formFutbolistas.get('goles').valid)}">   
+    <label for="goles"> Goles </label>
+    <input id="goles" class="form-control"
+    type="text" 
+    formControlName="goles">
+</div>
+
+<div class="form-group" [ngClass]="{'has-error':( 
+    formFutbolistas.get('equipo').touched || formFutbolistas.get('equipo').dirty 
+    && !formFutbolistas.get('equipo').valid)}">   
+    <label for="equipo"> Equipo </label>
+    <input id="equipo" class="form-control"
+    type="text" 
+    formControlName="equipo">
+</div>
+</fieldset>
+
+
+<td><button class="btn btn-primary" type="submit"> Guardar </button></td>
+</form>
